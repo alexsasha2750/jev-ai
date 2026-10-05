@@ -2,6 +2,7 @@
 
 Une interface navigateur pour prendre des décisions structurées avec Jev via Pollinations.
 
+> **🌐 README:** [🇬🇧 EN](README.md) · [🇷🇺 RU](README.ru.md) · [🇨🇳 中文](README.zh.md) · [🇪🇸 ES](README.es.md) · [🇫🇷 FR](README.fr.md) · [🇩🇪 DE](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md) · [🇵🇹 PT](README.pt.md) · [🇮🇹 IT](README.it.md) · [🇸🇦 العربية](README.ar.md)
 ## Qu’est-ce que Jev ?
 
 Jev est le premier modèle **System One** de TypeSafe AI. Il est conçu pour produire des décisions typées directement exploitables par les logiciels, plutôt que du texte libre. L’application fournit un état et des questions typées ; Jev peut retourner des choix, des scores et des probabilités pour les décisions binaires, ainsi que des informations de confiance lorsqu’elles sont disponibles.
@@ -42,10 +43,6 @@ L’authentification et l’inférence utilisent les API Pollinations depuis le 
 - `styles.css` — design, responsive et accessibilité
 - `app.js` — OAuth, tokens, intégration Pollinations et inférence Jev
 - `assets/pollinations-logo-light.png` — ressource de marque Pollinations
-
-## Autres langues
-
-[English](README.md) · [Русский](README.ru.md) · [中文](README.zh.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [العربية](README.ar.md)
 
 ## Sources
 
