@@ -2,6 +2,7 @@
 
 Pollinations를 통해 Jev로 구조화된 의사결정을 수행할 수 있는 브라우저 인터페이스입니다.
 
+> **🌐 README:** [🇬🇧 EN](README.md) · [🇷🇺 RU](README.ru.md) · [🇨🇳 中文](README.zh.md) · [🇪🇸 ES](README.es.md) · [🇫🇷 FR](README.fr.md) · [🇩🇪 DE](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md) · [🇵🇹 PT](README.pt.md) · [🇮🇹 IT](README.it.md) · [🇸🇦 العربية](README.ar.md)
 ## Jev란?
 
 Jev는 TypeSafe AI의 첫 번째 **System One** 모델입니다. 일반적인 채팅형 LLM처럼 자유 형식의 텍스트를 생성하는 대신 소프트웨어가 직접 처리할 수 있는 타입화된 의사결정을 반환하도록 설계되었습니다. 애플리케이션 상태와 타입이 지정된 질문을 제공하면 선택, 점수, 예/아니오 확률 등의 구조화된 결과를 반환하며 지원되는 경우 신뢰도 정보도 제공합니다.
@@ -30,10 +31,6 @@ python3 -m http.server 8000
 - `styles.css` — 디자인, 반응형 레이아웃, 접근성
 - `app.js` — OAuth, 토큰 관리, Pollinations 연동, Jev 추론
 - `assets/pollinations-logo-light.png` — Pollinations 로고
-
-## 다른 언어
-
-[English](README.md) · [Русский](README.ru.md) · [中文](README.zh.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [العربية](README.ar.md)
 
 ## 참고 자료
 
