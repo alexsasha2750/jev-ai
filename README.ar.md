@@ -2,6 +2,7 @@
 
 واجهة تعمل في المتصفح لاتخاذ قرارات منظمة باستخدام Jev عبر Pollinations.
 
+> **🌐 README:** [🇬🇧 EN](README.md) · [🇷🇺 RU](README.ru.md) · [🇨🇳 中文](README.zh.md) · [🇪🇸 ES](README.es.md) · [🇫🇷 FR](README.fr.md) · [🇩🇪 DE](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md) · [🇵🇹 PT](README.pt.md) · [🇮🇹 IT](README.it.md) · [🇸🇦 العربية](README.ar.md)
 ## ما هو Jev؟
 
 Jev هو أول نموذج **System One** من TypeSafe AI. صُمم لإرجاع قرارات محددة النوع يمكن للبرمجيات استخدامها مباشرة بدلاً من إنشاء نص حر. يرسل التطبيق حالة النظام والأسئلة المحددة النوع، ويمكن لـ Jev إرجاع اختيارات ودرجات واحتمالات لقرارات نعم/لا، بالإضافة إلى معلومات الثقة عند توفرها.
@@ -32,10 +33,6 @@ python3 -m http.server 8000
 - `styles.css` — التصميم والتخطيط المتجاوب وتحسينات إمكانية الوصول
 - `app.js` — OAuth وإدارة الرموز وتكامل Pollinations واستدلال Jev
 - `assets/pollinations-logo-light.png` — شعار Pollinations
-
-## اللغات الأخرى
-
-[English](README.md) · [Русский](README.ru.md) · [中文](README.zh.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Português](README.pt.md) · [Italiano](README.it.md)
 
 ## المصادر
 
