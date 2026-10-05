@@ -479,6 +479,19 @@ function base64url(bytes) {
   return btoa(String.fromCharCode.apply(null, new Uint8Array(bytes))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
 }
 
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController();
+  const timer = window.setTimeout(function() { controller.abort(); }, timeoutMs || 15000);
+  try {
+    return await fetch(url, Object.assign({}, options, { signal: controller.signal }));
+  } catch (error) {
+    if (error && error.name === "AbortError") throw new Error("The Pollinations request timed out. Please try again.");
+    throw error;
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
 async function connectPollinations() {
   if (authorizedSessionExists() && keyReady) {
     try { sessionStorage.removeItem(OAUTH_TOKEN_KEY); } catch (error) {}
@@ -531,21 +544,24 @@ async function completeOAuth(data) {
     verifier = sessionStorage.getItem("jev-oauth-verifier");
     expectedState = sessionStorage.getItem("jev-oauth-state");
     redirectURI = sessionStorage.getItem("jev-oauth-redirect");
+    // Keep the verifier/state until the token exchange succeeds.
+  } catch (error) {}
+  if (!verifier || !expectedState || data.state !== expectedState) throw new Error("Could not verify the Pollinations sign-in response. Please connect again.");
+  const response = await fetchWithTimeout("https://enter.pollinations.ai/api/oauth/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ grant_type: "authorization_code", code: data.code, client_id: OAUTH_CLIENT_ID, redirect_uri: redirectURI, code_verifier: verifier })
+  }, 15000);
+  const payload = await response.json().catch(function() { return {}; });
+  if (!response.ok || !payload.access_token) throw new Error(payload.error_description || payload.error || "Pollinations sign-in could not be completed.");
+  sessionStorage.setItem(OAUTH_TOKEN_KEY, payload.access_token);
+  await validateKey();
+  try {
     sessionStorage.removeItem("jev-oauth-verifier");
     sessionStorage.removeItem("jev-oauth-state");
     sessionStorage.removeItem("jev-oauth-redirect");
     sessionStorage.removeItem("jev-oauth-popup");
   } catch (error) {}
-  if (!verifier || !expectedState || data.state !== expectedState) throw new Error("Could not verify the Pollinations sign-in response. Please connect again.");
-  const response = await fetch("https://enter.pollinations.ai/api/oauth/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ grant_type: "authorization_code", code: data.code, client_id: OAUTH_CLIENT_ID, redirect_uri: redirectURI, code_verifier: verifier })
-  });
-  const payload = await response.json().catch(function() { return {}; });
-  if (!response.ok || !payload.access_token) throw new Error(payload.error_description || payload.error || "Pollinations sign-in could not be completed.");
-  sessionStorage.setItem(OAUTH_TOKEN_KEY, payload.access_token);
-  await validateKey();
 }
 
 async function handleOAuthCallback() {
@@ -605,12 +621,16 @@ tokenForm.addEventListener("submit", async function(event) {
   tokenButton.disabled = true;
   setButtonLoading(tokenButton, true);
   try {
-    localStorage.setItem(TOKEN_KEY, token);
+    try {
+      localStorage.setItem(TOKEN_KEY, token);
+    } catch (error) {
+      throw new Error("Could not save the token in this browser.");
+    }
     tokenInput.value = "";
     updateTokenUI();
     await validateKey();
   } catch (error) {
-    tokenStatus.textContent = "Could not save token in this browser";
+    tokenStatus.textContent = error.message || "Could not save or verify the token.";
   } finally {
     tokenButton.disabled = false;
     setButtonLoading(tokenButton, false);
@@ -687,11 +707,11 @@ form.addEventListener("submit", async function(event) {
   try {
     const token = activeToken;
     let response;
-    try { response = await fetch(API_URL, {
+    try { response = await fetchWithTimeout(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json", ...(token ? { Authorization: "Bearer " + token } : {}) },
       body: JSON.stringify({ model: "jev", state: context, questions: questions, temperature: 0 })
-    }); } catch (error) {
+    }, 20000); } catch (error) {
       // A network failure says nothing about the key, so don't invalidate it.
       throw new Error("Could not reach Pollinations. Check your connection and try again.");
     }
