@@ -1,0 +1,9 @@
+# User uploads are not used by the app
+uploads/
+
+# Local secrets and editor/OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
