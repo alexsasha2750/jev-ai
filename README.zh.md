@@ -2,6 +2,7 @@
 
 通过 Pollinations 使用 Jev 进行结构化决策的浏览器界面。
 
+> **🌐 README:** [🇬🇧 EN](README.md) · [🇷🇺 RU](README.ru.md) · [🇨🇳 中文](README.zh.md) · [🇪🇸 ES](README.es.md) · [🇫🇷 FR](README.fr.md) · [🇩🇪 DE](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md) · [🇵🇹 PT](README.pt.md) · [🇮🇹 IT](README.it.md) · [🇸🇦 العربية](README.ar.md)
 Jev 是 TypeSafe AI 推出的第一款 **System One** 模型。与面向聊天和自由文本生成的传统 LLM 不同，Jev 专注于返回**可由程序直接处理的类型化决策**。应用可以提供状态和类型化问题，Jev 则返回选择、评分以及“是/否”概率等结构化结果，并在支持的情况下提供置信度信息。
 
 > **注意：** 本仓库是一个独立的客户端界面，并非 TypeSafe AI 的官方产品或官方网站。
@@ -59,19 +60,6 @@ http://localhost:8000
 - `styles.css` — 视觉设计、响应式布局和无障碍优化
 - `app.js` — OAuth、Token 管理、Pollinations 集成和 Jev 推理
 - `assets/pollinations-logo-light.png` — Pollinations 品牌资源
-
-## 其他语言
-
-- [English](README.md)
-- [Русский](README.ru.md)
-- [Español](README.es.md)
-- [Français](README.fr.md)
-- [Deutsch](README.de.md)
-- [日本語](README.ja.md)
-- [한국어](README.ko.md)
-- [Português](README.pt.md)
-- [Italiano](README.it.md)
-- [العربية](README.ar.md)
 
 ## 来源
 
