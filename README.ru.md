@@ -2,6 +2,7 @@
 
 Браузерный интерфейс для принятия структурированных решений с помощью Jev через Pollinations.
 
+> **🌐 README:** [🇬🇧 EN](README.md) · [🇷🇺 RU](README.ru.md) · [🇨🇳 中文](README.zh.md) · [🇪🇸 ES](README.es.md) · [🇫🇷 FR](README.fr.md) · [🇩🇪 DE](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md) · [🇵🇹 PT](README.pt.md) · [🇮🇹 IT](README.it.md) · [🇸🇦 العربية](README.ar.md)
 Jev — первая модель **System One** от TypeSafe AI. В отличие от традиционных LLM, ориентированных на чат и свободный текст, Jev предназначен для выдачи **типизированных решений, которые можно напрямую обрабатывать программным кодом**. Приложение передаёт состояние и типизированные вопросы, а Jev возвращает структурированные ответы: варианты, оценки и вероятности «да/нет», а там, где это поддерживается, — информацию об уверенности.
 
 > **Примечание:** этот репозиторий является независимым клиентским интерфейсом. Он не является официальным продуктом или официальным сайтом TypeSafe AI.
@@ -59,21 +60,6 @@ http://localhost:8000
 - `styles.css` — визуальный дизайн, адаптивная верстка и улучшения доступности
 - `app.js` — OAuth, работа с токенами, интеграция Pollinations и инференс Jev
 - `assets/pollinations-logo-light.png` — логотип Pollinations
-
-## Другие языки
-
-Полные переводы README доступны в отдельных файлах:
-
-- [English](README.md)
-- [中文](README.zh.md)
-- [Español](README.es.md)
-- [Français](README.fr.md)
-- [Deutsch](README.de.md)
-- [日本語](README.ja.md)
-- [한국어](README.ko.md)
-- [Português](README.pt.md)
-- [Italiano](README.it.md)
-- [العربية](README.ar.md)
 
 ## Источники
 
