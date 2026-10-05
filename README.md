@@ -2,6 +2,10 @@
 
 Jev AI is a browser-based decision interface powered by Pollinations' Jev inference API. It turns supplied context and structured questions into verdicts, confidence estimates, and score distributions.
 
+## Try it online
+
+Open the live interface at [jev-ai.on.websim.com](https://jev-ai.on.websim.com/).
+
 ## Run locally
 
 The app is static HTML, CSS, and JavaScript; it has no build step or package dependencies. From the repository root, run:
@@ -22,5 +26,3 @@ The app calls `gen.pollinations.ai/alpha/decisions` for Jev inference and Pollin
 - `styles.css`: app styles
 - `app.js`: Pollinations integration and interface behavior
 - `assets/pollinations-logo-light.png`: Pollinations logo used by the app
-
-No license has been selected for this repository yet.
